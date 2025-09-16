@@ -1,0 +1,14 @@
+/home/jordanjread/.ghcup/ghc/9.6.7/lib/ghc-9.6.7/lib/x86_64-linux-ghc-9.6.7/rts-1.0.2/include/ghcversion.h:
+  hash: 215ddac5a644eddece4748021e2caff6400a517822aedd66e9e9caf511124db8
+? /home/jordanjread/Haskell/HaskellWork/1JC3-Assign1/.stack-work/dist/x86_64-linux/ghc-9.6.7/build/1JC3-Assign1-test/autogen/Paths_1JC3_Assign1.hs
+: hash: e9ab1c3dbd83483eb535d68da9e71665aea6145061e0842e1dbc16a7f3df2304
+? /home/jordanjread/Haskell/HaskellWork/1JC3-Assign1/.stack-work/dist/x86_64-linux/ghc-9.6.7/build/1JC3-Assign1-test/autogen/cabal_macros.h
+: hash: 021325b59bd6c440340f9c56f34ecc67f0a10b06474636c65a3dbf251772fd1e
+/home/jordanjread/Haskell/HaskellWork/1JC3-Assign1/1JC3-Assign1.cabal:
+  hash: 0e226186501eb50f6ececd2865c4920dd4c86cb74b8fff66df8bc3694c954e56
+/home/jordanjread/Haskell/HaskellWork/1JC3-Assign1/package.yaml:
+  hash: 1523eb68707bf466aac2b74f8d0f48dbe9ef928c03dbfa293395fded67f19a19
+/home/jordanjread/Haskell/HaskellWork/1JC3-Assign1/test/Spec.hs:
+  hash: 4438790baa22a60e55d77aef915347781c98a93c280d5cd928709a8be9a839dc
+/usr/include/stdc-predef.h:
+  hash: cb08cd5d4cc059a90833ac48a284d25016e8d56ded8ad4cd98d8ac59cc5053f3

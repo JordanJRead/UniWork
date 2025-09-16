@@ -24,10 +24,10 @@ module Assign_1 where
 -- 4) REPLACE macid = "TODO" WITH YOUR ACTUAL MACID (EX. IF YOUR MACID IS jim THEN macid = "jim")
 -----------------------------------------------------------------------------------------------------------
 
--- Name: TODO add name
--- Date: TODO add date
+-- Name: Jordan Read
+-- Date: Sep 16
 macid :: String
-macid = "TODO"
+macid = "readj11"
 
 (***) :: Double -> Double -> Double
 x *** y = if x >= 0 then x ** y else -((-x) ** y)
@@ -37,65 +37,95 @@ x === y =
   let tol = 1e-3
   in abs (x-y) <= tol
 
+cubeRoot :: Double -> Double
+cubeRoot x
+  | x < 0     = -((-x) ** (1 / 3))
+  | otherwise =     x  ** (1 / 3)
+
 {- -----------------------------------------------------------------
  - cubicQ
  - -----------------------------------------------------------------
  - Description:
- -   TODO add comments
+ -   Calculates Q of a cubic equation
  -}
 cubicQ :: Rational -> Rational -> Rational -> Rational
-cubicQ a b c = error "TODO"
+cubicQ a b c = (3*a*c - b^2) / (9 * a^2)
 
 {- -----------------------------------------------------------------
  - cubicR
  - -----------------------------------------------------------------
  - Description:
- -   TODO add comments
+ -   Calculates R of a cubic equation
  -}
 cubicR :: Rational -> Rational -> Rational -> Rational -> Rational
-cubicR a b c d = error "TODO"
+cubicR a b c d = (9*a*b*c - 27*a^2*d - 2*b^3) / (54*a^3)
 
 {- -----------------------------------------------------------------
  - cubicDiscSign
  - -----------------------------------------------------------------
  - Description:
- -   TODO add comments
+ -   Calculates the sign of the discriminant (Q^3 + r^2)
+ -   Returns 0 if the discriminant is 0
  -}
 cubicDiscSign :: Rational -> Rational -> Int
 cubicDiscSign q r =
   let disc = q^^3 + r^^2
-  in error "TODO"
+  in
+    if disc < 0
+      then -1
+      else
+        if disc > 0
+          then 1
+          else 0
 
 {- -----------------------------------------------------------------
  - cubicS
  - -----------------------------------------------------------------
  - Description:
- -   TODO add comments
+ -   Calculates S of a cubic equation. Returns NaN if the discriminant is less than zero
  -}
 cubicS :: Rational -> Rational -> Double
-cubicS q r = error "TODO"
+cubicS q r 
+  | q^3 + r^2 < 0 = 0/0 -- needed?
+  | otherwise     = cubeRoot( dR + sqrt( dQ^3 + dR^2 ) )
+  where
+    dQ :: Double
+    dQ = fromRational(q)
+    dR :: Double
+    dR = fromRational(r)
 
 {- -----------------------------------------------------------------
  - cubicT
  - -----------------------------------------------------------------
  - Description:
- -   TODO add comments
+ -   Calculates T of a cubic equation. Returns NaN if the discriminant is less than zero
  -}
 cubicT :: Rational -> Rational -> Double
-cubicT q r = error "TODO"
+cubicT q r 
+  | q^3 + r^2 < 0 = 0/0
+  | otherwise     = cubeRoot( dR - sqrt( dQ^3 + dR^2 ) )
+  where
+    dQ :: Double
+    dQ = fromRational(q)
+    dR :: Double
+    dR = fromRational(r)
 
 {- -----------------------------------------------------------------
  - cubicRealSolutions
  - -----------------------------------------------------------------
  - Description:
- -   TODO add comments
+ -   Calculates the solutions to a cubic equation.
+ -   Returns a list of 0 to 3 rational numbers indicating the solutions.
+ -   Does not calculate complex solutions.
+ -   Does not calculate real solutions that require complex math.
+ -   Returns [] when a == 0, because a == 0 does not represent a cubic equation.
  -}
 cubicRealSolutions :: Rational -> Rational -> Rational -> Rational -> [Double]
 cubicRealSolutions a b c d
   | a == 0      = []
-  | sign == -1  = error "TODO"
-  | sign ==  0  = error "TODO"
-  | sign ==  1  = error "TODO"
+  | sign == -1  = []
+  | sign ==  0  = [x1, x2, x3]
+  | sign ==  1  = [x1]
   | otherwise   = []
   where
     sign = cubicDiscSign q r
@@ -103,6 +133,9 @@ cubicRealSolutions a b c d
     t    = cubicT q r
     q    = cubicQ a b c
     r    = cubicR a b c d
+    x1   = s + t - (fromRational(b) / (3.0*fromRational(a)))
+    x2   = -((s + t) / (2.0)) - fromRational(b) / (3.0*fromRational(a))
+    x3   = x2
 
 {- -----------------------------------------------------------------
  - Test Cases
