@@ -142,4 +142,9 @@ cubicRealSolutions a b c d
  - -----------------------------------------------------------------
  -}
 
--- TODO: Add Test Cases for each of your functions below here
+{-
+  I tested the function cubicRealSolutions by
+  randomly generating a, b, c, d values in python and
+  checking the solutions against
+  what numpy (python math library) gave as answers
+-}
