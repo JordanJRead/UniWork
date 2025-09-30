@@ -38,9 +38,7 @@ x === y =
   in abs (x-y) <= tol
 
 cubeRoot :: Double -> Double
-cubeRoot x
-  | x < 0     = -((-x) ** (1 / 3))
-  | otherwise =     x  ** (1 / 3)
+cubeRoot x = x *** (1 / 3)
 
 {- -----------------------------------------------------------------
  - cubicQ
@@ -85,14 +83,12 @@ cubicDiscSign q r =
  -   Calculates S of a cubic equation. Returns NaN if the discriminant is less than zero
  -}
 cubicS :: Rational -> Rational -> Double
-cubicS q r 
-  | q^3 + r^2 < 0 = 0/0 -- needed?
-  | otherwise     = cubeRoot( dR + sqrt( dQ^3 + dR^2 ) )
+cubicS q r = cubeRoot( dR + sqrt( dQ^3 + dR^2 ) )
   where
     dQ :: Double
-    dQ = fromRational(q)
+    dQ = fromRational q
     dR :: Double
-    dR = fromRational(r)
+    dR = fromRational r
 
 {- -----------------------------------------------------------------
  - cubicT
@@ -101,14 +97,12 @@ cubicS q r
  -   Calculates T of a cubic equation. Returns NaN if the discriminant is less than zero
  -}
 cubicT :: Rational -> Rational -> Double
-cubicT q r 
-  | q^3 + r^2 < 0 = 0/0
-  | otherwise     = cubeRoot( dR - sqrt( dQ^3 + dR^2 ) )
+cubicT q r = cubeRoot( dR - sqrt( dQ^3 + dR^2 ) )
   where
     dQ :: Double
-    dQ = fromRational(q)
+    dQ = fromRational q
     dR :: Double
-    dR = fromRational(r)
+    dR = fromRational r
 
 {- -----------------------------------------------------------------
  - cubicRealSolutions
