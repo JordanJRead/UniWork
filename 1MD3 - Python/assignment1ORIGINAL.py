@@ -15,32 +15,8 @@ def is_valid_number(num: str) -> bool:
     >>> is_valid_number("abc")
     False
     """
-
-    if len(num) == 0:
-        return False
-    
-    # Remove sign
-    if (num[0] in ['-']):
-        num = num[1:]
-    
-    # Simple case, where there is no decimal
-    if (num.isnumeric()):
-        return True
-    # Now, number should have the format ####.####
-
-    if (num.count('.') != 1):
-        return False
-    
-    # Make sure dot is in the middle of the string
-    if num.index('.') in [0, len(num) - 1]:
-        return False
-    
-    nums = num.split('.')
-
-    if (len(nums) != 2):
-        return False # Shouldn't ever happen anyways
-    
-    return nums[0].isnumeric() and nums[1].isnumeric()
+    #TODO
+    return
 
 
 def is_valid_term(term: str) -> bool:
@@ -63,34 +39,8 @@ def is_valid_term(term: str) -> bool:
     >>> is_valid_term("7x^ 8.8")
     False
     """
-
-    # Degree 0
-    if is_valid_number(term):
-        return True
-    
-    # Degree 1
-    allButLast = term[0:len(term) - 1]
-    if is_valid_number(allButLast) and term[-1] == 'x':
-        return True
-    
-    # Degree > 1
-    if term.count('x') != 1:
-        return False
-    
-    num, exp = term.split('x')
-
-    if not is_valid_number(num):
-        return False
-
-    if len(exp) < 2:
-        return False
-
-    if (exp[0] != '^'):
-        return False
-    
-    afterCaret = exp[1:]
-    if (afterCaret.isnumeric() and int(afterCaret) not in [0, 1]): # Assuming that degree 0 and 1 must not have an exponent
-        return True
+    #TODO
+    return
 
     
 def approx_equal(x: float, y: float, tol: float) -> bool:
@@ -106,8 +56,8 @@ def approx_equal(x: float, y: float, tol: float) -> bool:
     >>> approx_equal(0.999, 1, 0.0001)
     False
     """
-
-    return abs(x - y) <= tol
+    #TODO
+    return
 
 
 def degree_of(term: str) -> int:
@@ -122,14 +72,8 @@ def degree_of(term: str) -> int:
     >>> degree_of("252.192")
     0
     """
-
-    if (is_valid_number(term)):
-        return 0
-    if (term[-1] == 'x'):
-        return 1
-    
-    caretIndex = term.index('^')
-    return int(term[caretIndex + 1:])
+    #TODO
+    return
 
 
 def get_coefficient(term: str) -> float:
@@ -144,7 +88,8 @@ def get_coefficient(term: str) -> float:
     >>> get_coefficient("252.192")
     252.192
     """
-    return float(term.split('x')[0])
+    #TODO
+    return
 
 
 
