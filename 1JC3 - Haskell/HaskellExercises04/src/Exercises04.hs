@@ -122,9 +122,6 @@ treeSum (Node v t1 t2) = v + treeSum t1 + treeSum t2
 treeHeight :: Tree a -> Int
 treeHeight Empty = 0
 treeHeight (Node v t1 t2) = 1 + max (treeHeight t1) (treeHeight t2)
-  where
-    max :: Ord a => a -> a -> a
-    max x y = if x > y then x else y
 
 -- Exercise H
 --------------------------------------------------------------------------------
